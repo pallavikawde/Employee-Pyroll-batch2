@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.naming.Name;
 import java.time.LocalDateTime;
 import java.util.List;
-
-@RestController
-@RequestMapping(value = "/employeeList")
 /**
  *
  * @Author:PALLAVI JAGTAP
@@ -19,28 +16,32 @@ import java.util.List;
  * @version:2.0.1
  */
 
+@RestController
+@RequestMapping(value = "/employeeList")
+
 public class EmployeePayrollController {
 
     @Autowired
     private EmployeePayrollService employeePayrollService;
 
-    @GetMapping(value = "/get-all-list")
-     public List<EmployeePayrollDetails> getAllEmployee(){
-        return employeePayrollService.getAllEmployee();
+    @GetMapping(value = "/get-all-list-of-employee")
+    public List<EmployeePayrollDetails> getAllList() {
+        return employeePayrollService.getAllListOfEmployeeDetails();
+
     }
 
-    @PostMapping(value="/add-employee")
-    public EmployeePayrollModel addEmployee(@RequestBody EmployeePayrollDetails employeeDto){
-        return employeePayrollService.addEmploye(employeeDto);
-    }
-    @PutMapping( value ="/edit-name/{id}")
-    public EmployeePayrollModel editId(@RequestBody EmployeePayrollDetails employeeDto, @PathVariable int id){
-        return employeePayrollService.editId(employeeDto,id);
-    }
-    @DeleteMapping(value="/delete_name/{id}")
-    public String deleteById(@PathVariable Integer id){
-        return employeePayrollService.delete(id);
-    }
+    @PostMapping(value = "/Add-employee-details")
+   public String addDetails(@RequestBody EmployeePayrollDetails employeePayrollDetails){
+        return employeePayrollService.addDetails(employeePayrollDetails);
     }
 
+    @PutMapping("/update-list/{id}")
+    public String updateEmployeeDetail(@RequestBody EmployeePayrollDetails employeePayrollDetails, @PathVariable int id) {
+        return employeePayrollService.updateEmployeeDetails(employeePayrollDetails, id);
+    }
+    @DeleteMapping("/delet/{id}")
+    public String deleteEmployeeId(@PathVariable int id){
+        return employeePayrollService.deleteEmployeeId(id);
+    }
 
+}

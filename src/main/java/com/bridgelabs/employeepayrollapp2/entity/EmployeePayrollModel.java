@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -21,13 +20,31 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "payroll")
 public class EmployeePayrollModel {
-    @Max(value=10)
-    private int id;
-    private String name;
-    private double salary;
-    private String department;
-    @Past
-    private LocalDate JoiningDate;
+        @Id
+        @Column(name = "eid")
+        private int eid;
 
-}
+        @Column(name = "empName")
+        private String empName;
+
+        @Column(name = "empGender")
+        private String empGender;
+
+        @Column(name = "empDepartment")
+        private String empDepartment;
+
+        @Column(name = "empSalary")
+        private String empSalary;
+
+        @Column(name = "empStartDate")
+        private String empStartDate;
+
+        @Column(name = "empNotes")
+        private String empNotes;
+
+        @Column(name = "empImagePath")
+        private String empImagePath;
+    }
+
