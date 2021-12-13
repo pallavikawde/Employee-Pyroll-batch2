@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.naming.Name;
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 /**
@@ -31,7 +32,7 @@ public class EmployeePayrollController {
     }
 
     @PostMapping(value = "/Add-employee-details")
-   public String addDetails(@RequestBody EmployeePayrollDetails employeePayrollDetails){
+   public String addDetails(@Valid @RequestBody EmployeePayrollDetails employeePayrollDetails){
         return employeePayrollService.addDetails(employeePayrollDetails);
     }
 
