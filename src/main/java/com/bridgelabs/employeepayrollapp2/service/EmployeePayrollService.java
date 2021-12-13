@@ -2,7 +2,7 @@ package com.bridgelabs.employeepayrollapp2.service;
 
 import com.bridgelabs.employeepayrollapp2.dto.EmployeePayrollDetails;
 import com.bridgelabs.employeepayrollapp2.entity.EmployeePayrollModel;
-//import com.bridgelabs.employeepayrollapp2.exception.EmptyInputException;
+import com.bridgelabs.employeepayrollapp2.exception.EmptyInputException;
 import com.bridgelabs.employeepayrollapp2.repo.EmployeePayrollRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -35,9 +35,9 @@ public class EmployeePayrollService {
     }
 
     public String addDetails(EmployeePayrollDetails employeePayrollDetails) {
-//        if(employeePayrollDetails.getName().isEmpty()||employeePayrollDetails.getName().length()==0){
-//        throw EmptyInputException("601","please check");
-//        }
+        if(employeePayrollDetails.getEmpName().isEmpty()||employeePayrollDetails.getEmpName().length()==0){
+        throw new EmptyInputException("601","please check");
+        }
         EmployeePayrollModel employeePayrollModel =mapper.map(employeePayrollDetails,EmployeePayrollModel.class);
         employeePayrollRepository.save(employeePayrollModel);
         return DETAILS_ADDED_SUCCESSFULLY;
@@ -57,6 +57,8 @@ public class EmployeePayrollService {
         employeePayrollRepository.deleteById(id);
         return ID_DELETED_SUCCESSFULLY;
     }
+
+
 }
 
 
