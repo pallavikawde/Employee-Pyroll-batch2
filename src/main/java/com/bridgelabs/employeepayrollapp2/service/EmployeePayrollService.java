@@ -18,6 +18,12 @@ import java.util.stream.Collectors;
 @Slf4j
 @Configuration
 @Service
+/**************************************************************************************************************************
+ * @Author:PALLAVI
+ * @since:8-12-21
+ * @version:2.0.1
+ ***************************************************************************************************************************/
+
 public class EmployeePayrollService {
 
     private static final String DETAILS_ADDED_SUCCESSFULLY = "DETAILS_ADDED_SUCCESSFULLY ";

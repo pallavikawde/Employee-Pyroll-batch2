@@ -7,12 +7,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
 import javax.validation.UnexpectedTypeException;
 import java.util.NoSuchElementException;
-
+/*****************************************************************************************************************************
+ * @Author:PALLAVI
+ * @since:8-12-21
+ * @version:2.0.1
+ **************************************************************************************************************************/
 @ControllerAdvice
 public class GlobalExceptionHandling extends ResponseEntityExceptionHandler {
+
     @ExceptionHandler(EmptyInputException.class)
     public ResponseEntity<String> handleEmptyInput(EmptyInputException emptyInputException) {
         return new ResponseEntity<String>("input fields are empty,please look into it", HttpStatus.NOT_FOUND);
