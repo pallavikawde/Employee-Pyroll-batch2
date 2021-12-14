@@ -21,6 +21,12 @@ import java.util.ArrayList;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+/**************************************************************************************************************************
+ * @Author:PALLAVI
+ * @since:8-12-21
+ * @version:2.0.1
+ ***************************************************************************************************************************/
+
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(EmployeePayrollController.class)
@@ -100,17 +106,17 @@ public class AtmControllerIt {
 
 
     }
-    @Test
-    void deleteAtmTest() throws Exception {
-        String dto = objectMapper.writeValueAsString(employeePayrollDetails);
-        //when(employeePayrollService.addDetails(any())).thenReturn("Success");
-        mockMvc.perform(MockMvcRequestBuilders
-                .delete("/employeeList/delet/4")
-                .content(dto)
-                .contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(status().isOk()).andReturn();
-
-
-    }
+//    @Test
+//    void deleteAtmTest() throws Exception {
+//        String dto = objectMapper.writeValueAsString(employeePayrollDetails);
+//        //when(employeePayrollService.addDetails(any())).thenReturn("Success");
+//        mockMvc.perform(MockMvcRequestBuilders
+//                .delete("/employeeList/delet/4")
+//                .content(dto)
+//                .contentType(MediaType.APPLICATION_JSON_VALUE))
+//                .andExpect(status().isOk()).andReturn();
+//
+//
+//    }
 
 }
