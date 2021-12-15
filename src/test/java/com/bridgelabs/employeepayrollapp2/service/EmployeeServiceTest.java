@@ -80,44 +80,44 @@ public class EmployeeServiceTest {
         String ActualResponse = employeePayrollRepository.findAll().toString();
         Assertions.assertEquals(List.of(employeePayrollDetails), employeePayrollRepository.findAll());
     }
+
+
+    @Test
+    void whenAddEmployeeDetailsCalled_shouldReturnGenerateSuccessMessage() {
+        when(employeePayrollRepository.save()).thenReturn(List.of(employeePayrollModel));
+        when(mapper.map(employeePayrollModel,EmployeePayrollDetails.class)).thenReturn(employeePayrollDetails);
+        when(mapper.map(employeePayrollModel1,EmployeePayrollDetails.class)).thenReturn(employeePayrollDetails2);
+        String ActualResponse = employeePayrollRepository.findAll().toString();
+        Assertions.assertEquals(List.of(employeePayrollDetails), employeePayrollRepository.getAllList());
+    }
+
+    @Test
+    void whenEmployeeIdDeleted_shouldReturnSuccessMessage() {
+        String successMessage = "id deleted successfully";
+        int id = 1;
+        when(employeePayrollService.deleteEmployeeId(id)).thenReturn(successMessage);
+        String actualResponse = employeePayrollController.deleteEmployeeId(id);
+        Assertions.assertEquals(successMessage, actualResponse);
+    }
+
+    @Test
+    void givenPayrollDto_whenCalledUpdatePayroll_shouldReturnSuccessMessage() {
+        String successMessage = "updated successfully";
+        int id = 2;
+//        EmployeePayrollDetails employeePayrollDetails = new EmployeePayrollDetails();
+//        employeePayrollDetails.setEmpDepartment("It");
+//        employeePayrollDetails.setEmpGender("female");
+//        employeePayrollDetails.setEid(3);
+//        employeePayrollDetails.setEmpImagePath("img1");
+//        employeePayrollDetails.setEmpNotes("java");
+//        employeePayrollDetails.setEmpSalary("20000");
+//        employeePayrollDetails.setEmpStartDate("12/12/12");
+        when(employeePayrollService.updateEmployeeDetails(employeePayrollDetails, id)).thenReturn("updated successfully");
+        String actualResponse = employeePayrollController.updateEmployeeDetail(employeePayrollDetails, id);
+        Assertions.assertEquals(successMessage, actualResponse);
+    }
+
 }
 
-//    @Test
-//    void whenAddEmployeeDetailsCalled_shouldReturnGenerateSuccessMessage() {
-//        when(employeePayrollRepository.save()).thenReturn(List.of(employeePayrollModel));
-//        when(mapper.map(employeePayrollModel,EmployeePayrollDetails.class)).thenReturn(employeePayrollDetails);
-//        when(mapper.map(employeePayrollModel1,EmployeePayrollDetails.class)).thenReturn(employeePayrollDetails2);
-//        String ActualResponse = employeePayrollRepository.findAll().toString();
-//        Assertions.assertEquals(List.of(employeePayrollDetails), employeePayrollRepository.getAllList());
-//    }
-//
-//    @Test
-//    void whenEmployeeIdDeleted_shouldReturnSuccessMessage() {
-//        String successMessage = "id deleted successfully";
-//        int id = 1;
-//        when(employeePayrollService.deleteEmployeeId(id)).thenReturn(successMessage);
-//        String actualResponse = employeePayrollController.deleteEmployeeId(id);
-//        Assertions.assertEquals(successMessage, actualResponse);
-//    }
-//
-//    @Test
-//    void givenPayrollDto_whenCalledUpdatePayroll_shouldReturnSuccessMessage() {
-//        String successMessage = "updated successfully";
-//        int id = 2;
-////        EmployeePayrollDetails employeePayrollDetails = new EmployeePayrollDetails();
-////        employeePayrollDetails.setEmpDepartment("It");
-////        employeePayrollDetails.setEmpGender("female");
-////        employeePayrollDetails.setEid(3);
-////        employeePayrollDetails.setEmpImagePath("img1");
-////        employeePayrollDetails.setEmpNotes("java");
-////        employeePayrollDetails.setEmpSalary("20000");
-////        employeePayrollDetails.setEmpStartDate("12/12/12");
-//        when(employeePayrollService.updateEmployeeDetails(employeePayrollDetails, id)).thenReturn("updated successfully");
-//        String actualResponse = employeePayrollController.updateEmployeeDetail(employeePayrollDetails, id);
-//        Assertions.assertEquals(successMessage, actualResponse);
-//    }
-//
-//}
-//
-//    }
-//}
+    
+
