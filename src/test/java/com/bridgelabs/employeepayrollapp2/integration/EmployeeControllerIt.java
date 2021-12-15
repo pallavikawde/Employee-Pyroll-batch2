@@ -31,7 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(EmployeePayrollController.class)
 //@ActiveProfiles("test")
-public class AtmControllerIt {
+public class EmployeeControllerIt {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
@@ -106,17 +106,17 @@ public class AtmControllerIt {
 
 
     }
-//    @Test
-//    void deleteAtmTest() throws Exception {
-//        String dto = objectMapper.writeValueAsString(employeePayrollDetails);
-//        //when(employeePayrollService.addDetails(any())).thenReturn("Success");
-//        mockMvc.perform(MockMvcRequestBuilders
-//                .delete("/employeeList/delet/4")
-//                .content(dto)
-//                .contentType(MediaType.APPLICATION_JSON_VALUE))
-//                .andExpect(status().isOk()).andReturn();
-//
-//
-//    }
+    @Test
+    void deleteAtmTest() throws Exception {
+        String dto = objectMapper.writeValueAsString(employeePayrollDetails);
+        //when(employeePayrollService.addDetails(any())).thenReturn("Success");
+        mockMvc.perform(MockMvcRequestBuilders
+                .delete("/employeeList/delete/4")
+                .content(dto)
+                .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andExpect(status().isOk()).andReturn();
+
+
+    }
 
 }

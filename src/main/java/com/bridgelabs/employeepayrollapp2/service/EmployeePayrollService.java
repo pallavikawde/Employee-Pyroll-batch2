@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
  * @version:2.0.1
  ***************************************************************************************************************************/
 
-public class EmployeePayrollService {
+public class EmployeePayrollService  {
 
     private static final String DETAILS_ADDED_SUCCESSFULLY = "DETAILS_ADDED_SUCCESSFULLY ";
     private static final String UPDATED_SUCCESSFULLY = "id updated successfully";
@@ -58,7 +58,6 @@ public class EmployeePayrollService {
     public EmployeePayrollModel checkIdPresentOrNot(int id){
         return employeePayrollRepository.findById(id).get();
     }
-
     public String deleteEmployeeId(int id) {
         employeePayrollRepository.deleteById(id);
         return ID_DELETED_SUCCESSFULLY;
