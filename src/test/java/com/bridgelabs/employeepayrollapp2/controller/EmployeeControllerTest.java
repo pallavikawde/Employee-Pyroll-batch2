@@ -34,7 +34,7 @@ public class EmployeeControllerTest {
 
     @BeforeEach
     void setUp() {
-        employeePayrollDetails = new EmployeePayrollDetails();
+       //() employeePayrollDetails = new EmployeePayrollDetails();
         employeePayrollDetails.setEmpDepartment("It");
         employeePayrollDetails.setEmpGender("female");
         employeePayrollDetails.setEid(2);
@@ -69,7 +69,7 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    void whenAddEmployeeDetailsCalled_shouldAddEmployeeDetailsAndGenerateSuccessMessage() {
+    void whenAddEmployeeDetailsCalled_shouldReturnGenerateSuccessMessage() {
         String successMessage = "added successfully";
         when(employeePayrollController.addDetails(employeePayrollDetails)).thenReturn(successMessage);
         String actualResponse = employeePayrollController.addDetails(employeePayrollDetails);

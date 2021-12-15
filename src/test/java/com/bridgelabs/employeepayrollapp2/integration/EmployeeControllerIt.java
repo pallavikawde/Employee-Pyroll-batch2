@@ -76,7 +76,7 @@ public class EmployeeControllerIt {
     }
 
     @Test
-    void getAllAtmTest() throws Exception {
+    void getAllEmployeeDetailsTest() throws Exception {
         // when(employeePayrollService.getAllListOfEmployeeDetails()).thenReturn(new ArrayList<>());
         mockMvc.perform(MockMvcRequestBuilders
                 .get("/employeeList/get-all-list-of-employee"))
@@ -84,7 +84,7 @@ public class EmployeeControllerIt {
     }
 
     @Test
-    void addAtmTest() throws Exception {
+    void addEmployeDetailsTest() throws Exception {
         String dto = objectMapper.writeValueAsString(employeePayrollDetails);
         //when(employeePayrollService.addDetails(any())).thenReturn("Success");
         mockMvc.perform(MockMvcRequestBuilders
@@ -95,7 +95,7 @@ public class EmployeeControllerIt {
     }
 
     @Test
-    void updateAtmTest() throws Exception {
+    void updateEmployeeDetailsTest() throws Exception {
         String dto = objectMapper.writeValueAsString(employeePayrollDetails);
         //when(employeePayrollService.addDetails(any())).thenReturn("Success");
         mockMvc.perform(MockMvcRequestBuilders
@@ -107,7 +107,7 @@ public class EmployeeControllerIt {
 
     }
     @Test
-    void deleteAtmTest() throws Exception {
+    void deleteEmployeeDetailsTest() throws Exception {
         String dto = objectMapper.writeValueAsString(employeePayrollDetails);
         //when(employeePayrollService.addDetails(any())).thenReturn("Success");
         mockMvc.perform(MockMvcRequestBuilders
