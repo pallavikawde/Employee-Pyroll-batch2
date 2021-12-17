@@ -4,12 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-/*****************************************************************************************************************************
- *
- * @Author:PALLAVI
- * @since:8-12-21
- * @version:2.0.1
- **************************************************************************************************************************/
+/**
+ * @author pallavi jagtap
+ * @version : 0.0.1-SNAPSHOT
+ * @since 2021-12-06
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

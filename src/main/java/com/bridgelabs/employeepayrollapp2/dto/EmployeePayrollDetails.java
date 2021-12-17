@@ -3,22 +3,23 @@ package com.bridgelabs.employeepayrollapp2.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
-/****************************************************************************************************************************
- * @Author:PALLAVI
- * @since:8-12-21
- * @version:2.0.1
- ****************************************************************************************************************************/
+/**
+ * Purpose : To invoke the data from client
+ * @author pallavi jagtap
+ * @version : 0.0.1-SNAPSHOT
+ * @since 2021-12-06
+ */
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeePayrollDetails {
-        private int eid;
+
     @NotNull
     @Pattern(regexp = "^[A-Za-z ]{3,28}$", message = "The name can not contain any numbers or symbols.")
     private String empName;
@@ -28,8 +29,7 @@ public class EmployeePayrollDetails {
     private String empGender;
 
     @NotNull
-    @Pattern(regexp = "[A-Z]{3}")
-    private String empDepartment;
+    private List<String> empDepartment;
 
     @NotNull
     @Pattern(regexp = "[0-9]{4,7}")

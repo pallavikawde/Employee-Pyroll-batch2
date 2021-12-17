@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -30,7 +31,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(EmployeePayrollController.class)
-//@ActiveProfiles("test")
 public class EmployeeControllerIt {
 
     ObjectMapper objectMapper = new ObjectMapper();
@@ -48,30 +48,27 @@ public class EmployeeControllerIt {
     @BeforeEach
     void setUp() {
         employeePayrollDetails = new EmployeePayrollDetails();
-        employeePayrollDetails.setEmpDepartment("It");
+        employeePayrollDetails.setEmpDepartment(List.of("IT","HR","MANAGER"));
         employeePayrollDetails.setEmpGender("female");
-        employeePayrollDetails.setEid(2);
         employeePayrollDetails.setEmpImagePath("img1");
         employeePayrollDetails.setEmpNotes("java");
         employeePayrollDetails.setEmpSalary("20000");
         employeePayrollDetails.setEmpStartDate("12/12/12");
-        employeePayrollDetails2 = new EmployeePayrollDetails();
-        employeePayrollDetails2.setEmpDepartment("It");
-        employeePayrollDetails2.setEmpGender("female");
-        employeePayrollDetails2.setEid(3);
-        employeePayrollDetails2.setEmpImagePath("img1");
-        employeePayrollDetails2.setEmpNotes("java");
-        employeePayrollDetails2.setEmpSalary("20000");
-        employeePayrollDetails2.setEmpStartDate("12/12/12");
-
-        employeePayrollDetails3 = new EmployeePayrollDetails();
-        employeePayrollDetails3.setEmpDepartment("It");
-        employeePayrollDetails3.setEmpGender("female");
-        employeePayrollDetails3.setEid(3);
-        employeePayrollDetails3.setEmpImagePath("img1");
-        employeePayrollDetails3.setEmpNotes("java");
-        employeePayrollDetails3.setEmpSalary("20000");
-        employeePayrollDetails3.setEmpStartDate("12/12/12");
+//        employeePayrollDetails2 = new EmployeePayrollDetails();
+//        employeePayrollDetails2.setEmpDepartment("It");
+//        employeePayrollDetails2.setEmpGender("female");
+//        employeePayrollDetails2.setEmpImagePath("img1");
+//        employeePayrollDetails2.setEmpNotes("java");
+//        employeePayrollDetails2.setEmpSalary("20000");
+//        employeePayrollDetails2.setEmpStartDate("12/12/12");
+//
+//        employeePayrollDetails3 = new EmployeePayrollDetails();
+//        employeePayrollDetails3.setEmpDepartment("It");
+//        employeePayrollDetails3.setEmpGender("female");
+//        employeePayrollDetails3.setEmpImagePath("img1");
+//        employeePayrollDetails3.setEmpNotes("java");
+//        employeePayrollDetails3.setEmpSalary("20000");
+//        employeePayrollDetails3.setEmpStartDate("12/12/12");
 
     }
 

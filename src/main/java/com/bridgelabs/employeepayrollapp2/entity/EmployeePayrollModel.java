@@ -4,17 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
-/*****************************************************************************************************************************
+/**
+ * Purpose : to contain the entities in ths db
  *
- * @Author:PALLAVI
- * @since:8-12-21
- * @version:2.0.1
- **************************************************************************************************************************/
+ * @author pallavi jagtap
+ * @version : 0.0.1-SNAPSHOT
+ * @since 2021-12-06
+ */
 @Data
 @Entity
 @AllArgsConstructor
@@ -22,14 +21,19 @@ import javax.persistence.Table;
 @Table(name = "payroll")
 public class EmployeePayrollModel {
     @Id
+    @GeneratedValue
     @Column(name = "eid")
     private int eid;
     @Column(name = "empName")
     private String empName;
     @Column(name = "empGender")
     private String empGender;
+   @ElementCollection
+   @CollectionTable(name="employee_department",joinColumns = @JoinColumn(name="id"))
     @Column(name = "empDepartment")
-    private String empDepartment;
+    private List<String> empDepartment;
+
+
     @Column(name = "empSalary")
     private String empSalary;
     @Column(name = "empStartDate")
