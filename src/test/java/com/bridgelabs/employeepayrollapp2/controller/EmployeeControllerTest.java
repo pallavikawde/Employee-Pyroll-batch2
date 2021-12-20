@@ -9,23 +9,18 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.List;
-
 import static org.mockito.Mockito.when;
-/**************************************************************************************************************************
- * @Author:PALLAVI
- * @since:8-12-21
- * @version:2.0.1
- ***************************************************************************************************************************/
 
-
+/**
+ * @author pallavi jagtap
+ * @version : 0.0.1-SNAPSHOT
+ * @since 2021-12-06
+ */
 @ExtendWith(MockitoExtension.class)
 public class EmployeeControllerTest {
 
     EmployeePayrollDetails employeePayrollDetails;
-    EmployeePayrollDetails employeePayrollDetails2;
-    EmployeePayrollDetails employeePayrollDetails3;
 
     @InjectMocks
     private EmployeePayrollController employeePayrollController;
@@ -35,28 +30,12 @@ public class EmployeeControllerTest {
     @BeforeEach
     void setUp() {
         employeePayrollDetails = new EmployeePayrollDetails();
-        employeePayrollDetails.setEmpDepartment(List.of("It","hr","manager"));
+        employeePayrollDetails.setEmpDepartment(List.of("It", "hr", "manager"));
         employeePayrollDetails.setEmpGender("female");
         employeePayrollDetails.setEmpImagePath("img1");
         employeePayrollDetails.setEmpNotes("java");
         employeePayrollDetails.setEmpSalary("20000");
         employeePayrollDetails.setEmpStartDate("12/12/12");
-//        employeePayrollDetails2 = new EmployeePayrollDetails();
-//        employeePayrollDetails2.setEmpDepartment(List);
-//        employeePayrollDetails2.setEmpGender("female");
-//        employeePayrollDetails2.setEmpImagePath("img1");
-//        employeePayrollDetails2.setEmpNotes("java");
-//        employeePayrollDetails2.setEmpSalary("20000");
-//        employeePayrollDetails2.setEmpStartDate("12/12/12");
-
-//        employeePayrollDetails3 = new EmployeePayrollDetails();
-//        employeePayrollDetails3.setEmpDepartment("It");
-//        employeePayrollDetails3.setEmpGender("female");
-//        employeePayrollDetails3.setEmpImagePath("img1");
-//        employeePayrollDetails3.setEmpNotes("java");
-//        employeePayrollDetails3.setEmpSalary("20000");
-//        employeePayrollDetails3.setEmpStartDate("12/12/12");
-
     }
 
     @Test
@@ -89,6 +68,5 @@ public class EmployeeControllerTest {
         String actualResponse = employeePayrollController.updateEmployeeDetail(employeePayrollDetails, id);
         Assertions.assertEquals(successMessage, actualResponse);
     }
-
 }
 

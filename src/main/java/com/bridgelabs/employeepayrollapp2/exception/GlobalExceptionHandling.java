@@ -1,6 +1,5 @@
 package com.bridgelabs.employeepayrollapp2.exception;
 
-import org.springframework.beans.factory.parsing.EmptyReaderEventListener;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -10,8 +9,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
 import javax.validation.UnexpectedTypeException;
 import java.util.NoSuchElementException;
+
 /**
  * Purpose : This class is major class for handling the all exception which can be thrown
  * while the application is running in the server side, as this is the global exception handler
@@ -46,12 +47,10 @@ public class GlobalExceptionHandling extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UnexpectedTypeException.class)
     public ResponseEntity<String> NoSuchElementException(UnexpectedTypeException unexpectedTypeException) {
         return new ResponseEntity<String>(" ,please change your request", HttpStatus.NOT_ACCEPTABLE);
-
     }
+
     @Override
     protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return new ResponseEntity<Object>("please change http methode type ", HttpStatus.NOT_FOUND);
-
     }
-
 }

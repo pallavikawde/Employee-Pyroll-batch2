@@ -24,13 +24,12 @@ public class LoggingAdvice {
     /**
      * Purpose : To declare pointcuts.
      */
-    @Pointcut(value = "execution (* com.bridgelabs.employeepayrollapp2.service.EmployeePayrollService.*(..))")
+    @Pointcut(value = "execution (* com.bridgelabs.employeepayrollapp2.*.*.*(..))")
     public void myPointCut() {
     }
 
     /**
      * Purpose : Defining log message with class, method names & parameters used in method.
-     *
      * @param proceedingJoinPoint : When invoked, the code execution jumps to the next advice or to the target method.
      * @return objectAfterProceeding : It's the response of that method.
      * @throws Throwable :  constructing JSON parser ( JsonParser ) and generator ( JsonGenerator ) instances and also

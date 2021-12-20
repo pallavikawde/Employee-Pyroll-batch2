@@ -21,25 +21,31 @@ import java.util.List;
 @Table(name = "payroll")
 public class EmployeePayrollModel {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "eid")
     private int eid;
+
     @Column(name = "empName")
     private String empName;
+
     @Column(name = "empGender")
     private String empGender;
-   @ElementCollection
-   @CollectionTable(name="employee_department",joinColumns = @JoinColumn(name="id"))
+
+    @ElementCollection
+    @CollectionTable(name = "employee_department", joinColumns = @JoinColumn(name = "id"))
+
     @Column(name = "empDepartment")
     private List<String> empDepartment;
 
-
     @Column(name = "empSalary")
     private String empSalary;
+
     @Column(name = "empStartDate")
     private String empStartDate;
+
     @Column(name = "empNotes")
     private String empNotes;
+
     @Column(name = "empImagePath")
     private String empImagePath;
 }

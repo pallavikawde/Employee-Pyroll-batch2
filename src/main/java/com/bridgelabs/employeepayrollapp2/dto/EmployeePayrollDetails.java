@@ -37,7 +37,6 @@ public class EmployeePayrollDetails {
     private String empSalary;
 
     @NotNull
-    @Past
     @Pattern(regexp = "[0-9/-]{9,11}")
     private String empStartDate;
 

@@ -15,6 +15,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+/**
+ * @author pallavi jagtap
+ * @version : 0.0.1-SNAPSHOT
+ * @since 2021-12-06
+ */
 @ExtendWith(MockitoExtension.class)
 public class EmployeeServiceTest {
 
@@ -39,7 +44,6 @@ public class EmployeeServiceTest {
         employeePayrollDetails.setEmpNotes("java");
         employeePayrollDetails.setEmpSalary("20000");
         employeePayrollDetails.setEmpStartDate("12/12/12");
-
         employeePayrollDetails2 = new EmployeePayrollDetails();
         employeePayrollDetails2.setEmpDepartment(List.of("HR","MANAGER","IT"));
         employeePayrollDetails2.setEmpGender("female");
@@ -47,7 +51,6 @@ public class EmployeeServiceTest {
         employeePayrollDetails2.setEmpNotes("java");
         employeePayrollDetails2.setEmpSalary("20000");
         employeePayrollDetails2.setEmpStartDate("12/12/12");
-
         employeePayrollModel = new EmployeePayrollModel();
         employeePayrollModel.setEmpDepartment(List.of("HR"));
         employeePayrollModel.setEmpGender("female");
@@ -55,7 +58,6 @@ public class EmployeeServiceTest {
         employeePayrollModel.setEmpNotes("java");
         employeePayrollModel.setEmpSalary("20000");
         employeePayrollModel.setEmpStartDate("12/12/12");
-
         employeePayrollModel1 = new EmployeePayrollModel();
         employeePayrollModel1.setEmpDepartment(List.of("HR"));
         employeePayrollModel1.setEmpGender("female");
@@ -63,8 +65,6 @@ public class EmployeeServiceTest {
         employeePayrollModel1.setEmpNotes("java");
         employeePayrollModel1.setEmpSalary("20000");
         employeePayrollModel1.setEmpStartDate("12/12/12");
-
-
     }
 
     @Test
@@ -79,8 +79,8 @@ public class EmployeeServiceTest {
        when(mapper.map(employeePayrollDetails2,EmployeePayrollModel.class)).thenReturn(employeePayrollModel);
         String actualMessage = employeePayrollService.addDetails(employeePayrollDetails2);
         assertEquals(successMessage,actualMessage);
-
     }
+
     @Test
     void whenEmployeeIdDeleted_shouldReturnSuccessMessage() {
         String successMessage = "id deleted successfully";
